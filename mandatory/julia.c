@@ -6,18 +6,16 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 00:57:23 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/17 01:20:49 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/19 15:26:16 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void    calculate_julia(t_fractal *fractal, char **av)
+void    calculate_julia(t_fractal *fractal, int in, int out)
 {
     double tmp;
 
-    fractal->c_r = atof(av[2]);
-    fractal->c_i = atof(av[3]);
     fractal->z_r = (4 * fractal->x / WIDTH) - 2;
     fractal->z_i = (4 * fractal->y / HEIGHT) - 2;
     fractal->iteration = 0;
@@ -31,12 +29,12 @@ void    calculate_julia(t_fractal *fractal, char **av)
         fractal->iteration++;
     }
     if (fractal->iteration == 60)
-        mlx_pixel_put(fractal->mlx, fractal->win, fractal->x, fractal->y, 0x000000);
+        my_mlx_pixel_put(fractal, in);
     else
-        mlx_pixel_put(fractal->mlx, fractal->win, fractal->x, fractal->y, 0x100101 * fractal->iteration);
+        my_mlx_pixel_put(fractal, out);
 }
 
-void	draw_julia(t_fractal *fractal, char **av)
+void	draw_julia(t_fractal *fractal, int in, int out)
 {
     fractal->x = 0;
     while  (fractal->x < WIDTH)
@@ -44,10 +42,10 @@ void	draw_julia(t_fractal *fractal, char **av)
         fractal->y = 0;
         while (fractal->y < HEIGHT)
         {
-            calculate_julia(fractal, av);
+            calculate_julia(fractal, in, out);
             fractal->y++;
         }
         fractal->x++;
     }
-    // mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
+    mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
 }
