@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:50:04 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/29 13:05:34 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/29 13:07:44 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	calculate_mandelbrot(t_fractal *fractal, int in, int out)
 	while (fractal->iteration < fractal->max_iteration)
 	{
 		tmp = fractal->z_re;
-		fractal->z_re = (fractal->z_re * fractal->z_rlse) - (fractal->z_im
+		fractal->z_re = (fractal->z_re * fractal->z_re) - (fractal->z_im
 				* fractal->z_im) + fractal->c_re;
 		fractal->z_im = (2 * tmp * fractal->z_im) + fractal->c_im;
 		if ((fractal->z_re * fractal->z_re) + (fractal->z_im * fractal->z_im) > 4.0)
