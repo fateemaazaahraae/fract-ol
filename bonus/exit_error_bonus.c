@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_error.c                                       :+:      :+:    :+:   */
+/*   exit_error_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:58:57 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/27 13:34:24 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/28 23:07:06 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	usage(int i)
 {
 	if (i == 1)
 		ft_putendl_fd("\x1b[31mReal Imaginary should be in [-2,2]\x1b[0m",
 			1);
+	else if (i == 2)
+		ft_putendl_fd("\x1b[31mEnter the two parameters of Julia\x1b[0m", 1);
 	else
 	{
 		ft_putendl_fd("\x1b[31mUsage: ./fractol_bonus <fractal>\x1b[0m\n", 1);
 		ft_putendl_fd("\t\x1b[31m Available fractals : \x1b[0m", 1);
 		ft_putendl_fd("\t\x1b[31m - mandelbrot (or 1) -\x1b[0m", 1);
 		ft_putendl_fd("\t\x1b[31m   - julia (or 2) -\x1b[0m", 1);
+		ft_putendl_fd("\t\x1b[31m  - tricorn (or 3) -\x1b[0m", 1);
+		ft_putendl_fd("\t\x1b[31m   - ship (or 4) -\x1b[0m", 1);
 	}
 	exit(1);
 }

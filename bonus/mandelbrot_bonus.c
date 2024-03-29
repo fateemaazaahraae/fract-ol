@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 00:57:23 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/27 15:40:51 by fbazaz           ###   ########.fr       */
+/*   Created: 2024/03/13 15:50:04 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/03/28 22:33:42 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
-void	calculate_julia(t_fractal *fractal, int in, int out)
+void	my_mlx_pixel_put(t_fractal *fractal, int color)
+{
+	char	*dst;
+
+	dst = fractal->addr + ((int)fractal->y * fractal->size_line
+			+ (int)fractal->x * (fractal->bit_per_pixel / 8));
+	*(unsigned int *)dst = color * fractal->iteration;
+}
+
+void	calculate_mandelbrot(t_fractal *fractal, int in, int out)
 {
 	double	tmp;
 
-	fractal->z_r = (((4 * fractal->x / WIDTH) - 2) * fractal->zoom)
+	fractal->z_r = 0.0;
+	fractal->z_i = 0.0;
+	fractal->c_r = (((4 * fractal->x / WIDTH) - 2) * fractal->zoom)
 		+ fractal->offset_x;
-	fractal->z_i = (((4 * fractal->y / HEIGHT) - 2) * fractal->zoom)
+	fractal->c_i = (((4 * fractal->y / HEIGHT) - 2) * fractal->zoom)
 		+ fractal->offset_y;
 	fractal->iteration = 0;
 	while (fractal->iteration < fractal->max_iteration)
@@ -37,15 +48,15 @@ void	calculate_julia(t_fractal *fractal, int in, int out)
 		my_mlx_pixel_put(fractal, out);
 }
 
-void	draw_julia(t_fractal *fractal, int in, int out)
+void	draw_mandelbrot(t_fractal *fractal, int in, int out)
 {
-	fractal->x = 0;
+	fractal->x = 0.0;
 	while (fractal->x < WIDTH)
 	{
 		fractal->y = 0;
 		while (fractal->y < HEIGHT)
 		{
-			calculate_julia(fractal, in, out);
+			calculate_mandelbrot(fractal, in, out);
 			fractal->y++;
 		}
 		fractal->x++;

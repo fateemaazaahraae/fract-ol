@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 17:39:08 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/24 23:52:07 by fbazaz           ###   ########.fr       */
+/*   Created: 2023/11/01 10:04:16 by fbazaz            #+#    #+#             */
+/*   Updated: 2024/03/24 23:36:44 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "utils.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct vars
+int	ft_isdigit(int c)
 {
-	int		i;
-	int		sign;
-	int		exponent;
-	double	num;
-}			t_vars;
-
-int			ft_strcmp(const char *s1, const char *s2);
-void		ft_putendl_fd(char *s, int fd);
-char		*ft_tolower(char *str);
-double		ft_atof(char *str);
-
-int			ft_isdigit(int c);
-
-#endif
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
+}

@@ -6,11 +6,11 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 00:57:23 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/27 15:40:51 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/27 15:40:59 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	calculate_julia(t_fractal *fractal, int in, int out)
 {

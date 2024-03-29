@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:49:53 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/27 13:33:13 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/28 23:06:00 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	check_arguments(int ac, char **av, t_fractal *fractal)
 {
@@ -18,8 +18,10 @@ void	check_arguments(int ac, char **av, t_fractal *fractal)
 				"1") == 0) && ac == 2)
 		fractal->set_name = "Mandelbrot set";
 	else if (((ft_strcmp(ft_tolower(av[1]), "julia") == 0) || (ft_strcmp(av[1],
-					"2") == 0)) && ac == 4)
+					"2") == 0)))
 	{
+		if (ac != 4)
+			usage(2);
 		fractal->set_name = "Julia set";
 		fractal->c_r = ft_atof(av[2]);
 		fractal->c_i = ft_atof(av[3]);
@@ -27,6 +29,12 @@ void	check_arguments(int ac, char **av, t_fractal *fractal)
 			|| fractal->c_i < -2)
 			usage(1);
 	}
+	else if ((ft_strcmp(ft_tolower(av[1]), "tricorn") == 0 || ft_strcmp(av[1],
+				"3") == 0) && ac == 2)
+		fractal->set_name = "Tricorn set";
+	else if ((ft_strcmp(ft_tolower(av[1]), "ship") == 0 || ft_strcmp(av[1],
+				"4") == 0) && ac == 2)
+		fractal->set_name = "Burning Ship set";
 	else
 		usage(0);
 }
@@ -38,6 +46,10 @@ void	draw(t_fractal *fractal)
 		draw_mandelbrot(fractal, BLACK, fractal->color);
 	else if (ft_strcmp(fractal->set_name, "Julia set") == 0)
 		draw_julia(fractal, BLACK, fractal->color);
+	else if (ft_strcmp(fractal->set_name, "Tricorn set") == 0)
+		draw_tricorn(fractal, BLACK, fractal->color);
+	else if (ft_strcmp(fractal->set_name, "Burning Ship set") == 0)
+		draw_burningship(fractal, BLACK, fractal->color);
 }
 
 void	menu(void)
