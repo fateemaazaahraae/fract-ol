@@ -6,38 +6,11 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:49:53 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/28 23:06:00 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/29 12:35:06 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
-
-void	check_arguments(int ac, char **av, t_fractal *fractal)
-{
-	if ((ft_strcmp(ft_tolower(av[1]), "mandelbrot") == 0 || ft_strcmp(av[1],
-				"1") == 0) && ac == 2)
-		fractal->set_name = "Mandelbrot set";
-	else if (((ft_strcmp(ft_tolower(av[1]), "julia") == 0) || (ft_strcmp(av[1],
-					"2") == 0)))
-	{
-		if (ac != 4)
-			usage(2);
-		fractal->set_name = "Julia set";
-		fractal->c_r = ft_atof(av[2]);
-		fractal->c_i = ft_atof(av[3]);
-		if (fractal->c_r > 2 || fractal->c_r < -2 || fractal->c_i > 2
-			|| fractal->c_i < -2)
-			usage(1);
-	}
-	else if ((ft_strcmp(ft_tolower(av[1]), "tricorn") == 0 || ft_strcmp(av[1],
-				"3") == 0) && ac == 2)
-		fractal->set_name = "Tricorn set";
-	else if ((ft_strcmp(ft_tolower(av[1]), "ship") == 0 || ft_strcmp(av[1],
-				"4") == 0) && ac == 2)
-		fractal->set_name = "Burning Ship set";
-	else
-		usage(0);
-}
 
 void	draw(t_fractal *fractal)
 {

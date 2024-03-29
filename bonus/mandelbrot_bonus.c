@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   mandelbrot_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:50:04 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/28 22:33:42 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/29 13:00:15 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ void	calculate_mandelbrot(t_fractal *fractal, int in, int out)
 {
 	double	tmp;
 
-	fractal->z_r = 0.0;
-	fractal->z_i = 0.0;
-	fractal->c_r = (((4 * fractal->x / WIDTH) - 2) * fractal->zoom)
+	fractal->z_re = 0.0;
+	fractal->z_im = 0.0;
+	fractal->c_re = (((4 * fractal->x / WIDTH) - 2) * fractal->zoom)
 		+ fractal->offset_x;
-	fractal->c_i = (((4 * fractal->y / HEIGHT) - 2) * fractal->zoom)
+	fractal->c_im = (((4 * fractal->y / HEIGHT) - 2) * fractal->zoom)
 		+ fractal->offset_y;
 	fractal->iteration = 0;
 	while (fractal->iteration < fractal->max_iteration)
 	{
-		tmp = fractal->z_r;
-		fractal->z_r = (fractal->z_r * fractal->z_r) - (fractal->z_i
-				* fractal->z_i) + fractal->c_r;
-		fractal->z_i = (2 * tmp * fractal->z_i) + fractal->c_i;
-		if ((fractal->z_r * fractal->z_r) + (fractal->z_i * fractal->z_i) > 4.0)
+		tmp = fractal->z_re;
+		fractal->z_re = (fractal->z_re * fractal->z_re) - (fractal->z_im
+				* fractal->z_im) + fractal->c_re;
+		fractal->z_im = (2 * tmp * fractal->z_im) + fractal->c_im;
+		if ((fractal->z_re * fractal->z_re) + (fractal->z_im * fractal->z_im) > 4.0)
 			break ;
 		fractal->iteration++;
 	}

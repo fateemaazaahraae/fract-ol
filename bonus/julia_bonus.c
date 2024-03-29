@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   julia_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 00:57:23 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/27 15:40:59 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/29 12:59:29 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ void	calculate_julia(t_fractal *fractal, int in, int out)
 {
 	double	tmp;
 
-	fractal->z_r = (((4 * fractal->x / WIDTH) - 2) * fractal->zoom)
+	fractal->z_re = (((4 * fractal->x / WIDTH) - 2) * fractal->zoom)
 		+ fractal->offset_x;
-	fractal->z_i = (((4 * fractal->y / HEIGHT) - 2) * fractal->zoom)
+	fractal->z_im = (((4 * fractal->y / HEIGHT) - 2) * fractal->zoom)
 		+ fractal->offset_y;
 	fractal->iteration = 0;
 	while (fractal->iteration < fractal->max_iteration)
 	{
-		tmp = fractal->z_r;
-		fractal->z_r = (fractal->z_r * fractal->z_r) - (fractal->z_i
-				* fractal->z_i) + fractal->c_r;
-		fractal->z_i = (2 * tmp * fractal->z_i) + fractal->c_i;
-		if ((fractal->z_r * fractal->z_r) + (fractal->z_i * fractal->z_i) > 4.0)
+		tmp = fractal->z_re;
+		fractal->z_re = (fractal->z_re * fractal->z_re) - (fractal->z_im
+				* fractal->z_im) + fractal->c_re;
+		fractal->z_im = (2 * tmp * fractal->z_im) + fractal->c_im;
+		if ((fractal->z_re * fractal->z_re) + (fractal->z_im * fractal->z_im) > 4.0)
 			break ;
 		fractal->iteration++;
 	}

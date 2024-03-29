@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:32:39 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/27 13:33:39 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/29 13:01:58 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ typedef struct fractal
 	double	offset_x;
 	double	offset_y;
 	double	zoom;
-	double	z_r;
-	double	z_i;
-	double	c_r;
-	double	c_i;
+	double	z_re;
+	double	z_im;
+	double	c_re;
+	double	c_im;
 	double	x;
 	double	y;
 	char	*buf;
@@ -74,4 +74,5 @@ int		mouse_input(int mousecode, int x, int y, t_fractal *fractal);
 void	change_color(t_fractal *fractal, int color);
 void	arrow_keys(t_fractal *fractal, int keycode);
 void	menu(void);
+int		check_julia_args(char *str);
 #endif

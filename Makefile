@@ -6,7 +6,7 @@
 #    By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 22:58:03 by fbazaz            #+#    #+#              #
-#    Updated: 2024/03/28 22:50:53 by fbazaz           ###   ########.fr        #
+#    Updated: 2024/03/29 12:37:08 by fbazaz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ NAME_BONUS = fractol_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRC = ./mandatory/events.c ./mandatory/exit_error.c ./mandatory/initialize.c ./mandatory/julia.c ./mandatory/main.c ./mandatory/mandelbrot.c
-SRC += ./utils/ft_putendl_fd.c ./utils/ft_strcmp.c ./utils/ft_tolower.c ./utils/ft_atof.c ./utils/ft_isdigit.c
+SRC += ./mandatory/check_args.c ./utils/ft_putendl_fd.c ./utils/ft_strcmp.c ./utils/ft_tolower.c ./utils/ft_atof.c ./utils/ft_isdigit.c
 
 SRC_BONUS = ./bonus/burningship_bonus.c ./bonus/events_bonus.c ./bonus/exit_error_bonus.c ./bonus/initialize_bonus.c ./bonus/julia_bonus.c ./bonus/main_bonus.c ./bonus/mandelbrot_bonus.c ./bonus/tricorn_bonus.c
-SRC_BONUS += ./utils/ft_putendl_fd.c ./utils/ft_strcmp.c ./utils/ft_tolower.c ./utils/ft_atof.c ./utils/ft_isdigit.c
+SRC_BONUS += ./bonus/check_args_bonus.c ./utils/ft_putendl_fd.c ./utils/ft_strcmp.c ./utils/ft_tolower.c ./utils/ft_atof.c ./utils/ft_isdigit.c
 
 OBJ = $(SRC:.c=.o)
 
