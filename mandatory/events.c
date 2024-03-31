@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 02:07:58 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/27 15:18:16 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/29 17:07:57 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,9 @@ int	key_input(int keycode, t_fractal *fractal)
 {
 	if (keycode == ESC)
 		ft_close(fractal);
-	if (keycode == 83)
-		change_color(fractal, 83);
-	if (keycode == 84)
-		change_color(fractal, 84);
-	if (keycode == 85)
-		change_color(fractal, 85);
-	if (keycode == 86)
-		change_color(fractal, 86);
-	if (keycode == 87)
-		change_color(fractal, 87);
+	if (keycode == 83 || keycode == 84 || keycode == 85 || keycode == 86
+		|| keycode == 87)
+		change_color(fractal, keycode);
 	if (keycode == 69 || keycode == 78)
 	{
 		if (keycode == 69)
@@ -64,6 +57,11 @@ int	key_input(int keycode, t_fractal *fractal)
 	}
 	if (keycode == 123 || keycode == 124 || keycode == 125 || keycode == 126)
 		arrow_keys(fractal, keycode);
+	if (keycode == 49)
+	{
+		init_fractal(fractal);
+		draw(fractal);
+	}
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:50:04 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/29 13:07:44 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/31 00:51:43 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	my_mlx_pixel_put(t_fractal *fractal, int color)
 {
-	char	*dst;
+	unsigned int	*dst;
 
 	dst = fractal->addr + ((int)fractal->y * fractal->size_line
 			+ (int)fractal->x * (fractal->bit_per_pixel / 8));
-	*(unsigned int *)dst = color * fractal->iteration;
+	*dst = color * fractal->iteration;
 }
 
 void	calculate_mandelbrot(t_fractal *fractal, int in, int out)
@@ -38,7 +38,8 @@ void	calculate_mandelbrot(t_fractal *fractal, int in, int out)
 		fractal->z_re = (fractal->z_re * fractal->z_re) - (fractal->z_im
 				* fractal->z_im) + fractal->c_re;
 		fractal->z_im = (2 * tmp * fractal->z_im) + fractal->c_im;
-		if ((fractal->z_re * fractal->z_re) + (fractal->z_im * fractal->z_im) > 4.0)
+		if ((fractal->z_re * fractal->z_re) + (fractal->z_im
+				* fractal->z_im) > 4.0)
 			break ;
 		fractal->iteration++;
 	}

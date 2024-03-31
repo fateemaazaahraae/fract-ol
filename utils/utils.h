@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:39:08 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/24 23:52:07 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/30 14:38:51 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int			ft_strcmp(const char *s1, const char *s2);
 void		ft_putendl_fd(char *s, int fd);
 char		*ft_tolower(char *str);
 double		ft_atof(char *str);
-
 int			ft_isdigit(int c);
 
 #endif

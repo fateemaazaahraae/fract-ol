@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:58:57 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/29 12:20:51 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/31 12:19:41 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 void	usage(int i)
 {
 	if (i == 1)
-		ft_putendl_fd("\x1b[31mReal Imaginary should be in [-2,2]\x1b[0m",
-			1);
+		ft_putendl_fd("\x1b[31mReal Imaginary should be in [-2,2]\x1b[0m", 1);
 	else if (i == 2)
-		ft_putendl_fd("\x1b[31mEnter the two parameters of Julia\x1b[0m",
-			1);
+		ft_putendl_fd("\x1b[31mEnter the two parameters of Julia\x1b[0m", 1);
 	else if (i == 3)
 		ft_putendl_fd("\x1b[31mEnter a valid julia args !\x1b[0m", 1);
 	else

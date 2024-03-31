@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 00:57:23 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/29 13:02:53 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/30 14:37:40 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	calculate_julia(t_fractal *fractal, int in, int out)
 		fractal->z_re = (fractal->z_re * fractal->z_re) - (fractal->z_im
 				* fractal->z_im) + fractal->c_re;
 		fractal->z_im = (2 * tmp * fractal->z_im) + fractal->c_im;
-		if ((fractal->z_re * fractal->z_re) + (fractal->z_im * fractal->z_im) > 4.0)
+		if ((fractal->z_re * fractal->z_re) + (fractal->z_im
+				* fractal->z_im) > 4.0)
 			break ;
 		fractal->iteration++;
 	}

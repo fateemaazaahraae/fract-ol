@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:50:04 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/29 13:01:35 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/30 14:37:07 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	calculate_tricorn(t_fractal *fractal, int in, int out)
 		fractal->z_re = (fractal->z_re * fractal->z_re) - (fractal->z_im
 				* fractal->z_im) + fractal->c_re;
 		fractal->z_im = (-2 * tmp * fractal->z_im) + fractal->c_im;
-		if ((fractal->z_re * fractal->z_re) + (fractal->z_im * fractal->z_im) > 4.0)
+		if ((fractal->z_re * fractal->z_re) + (fractal->z_im
+				* fractal->z_im) > 4.0)
 			break ;
 		fractal->iteration++;
 	}

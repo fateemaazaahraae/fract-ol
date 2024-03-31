@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:21:16 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/29 12:57:27 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/31 12:12:08 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ typedef struct fractal
 	double	c_im;
 	double	x;
 	double	y;
-	char	*buf;
 	char	*set_name;
 }			t_fractal;
 
@@ -74,9 +73,10 @@ void	usage(int i);
 int		ft_close(t_fractal *fractal);
 int		key_input(int keycode, t_fractal *fractal);
 void	my_mlx_pixel_put(t_fractal *fractal, int color);
-int		mouse_input(int mousecode, int x, int y, t_fractal *fractal);
+int		mouse_input(int button, int x, int y, t_fractal *fractal);
 void	change_color(t_fractal *fractal, int color);
 void	arrow_keys(t_fractal *fractal, int keycode);
 int		check_julia_args(char *str);
+int		norminette(char *str);
 
 #endif

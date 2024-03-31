@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:32:39 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/29 13:01:58 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/31 12:19:49 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ typedef struct fractal
 	double	c_im;
 	double	x;
 	double	y;
-	char	*buf;
 	char	*set_name;
 }			t_fractal;
 
@@ -75,4 +74,6 @@ void	change_color(t_fractal *fractal, int color);
 void	arrow_keys(t_fractal *fractal, int keycode);
 void	menu(void);
 int		check_julia_args(char *str);
+int		norminette(char *str);
+
 #endif
