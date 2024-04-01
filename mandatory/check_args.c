@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 12:15:29 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/31 12:47:31 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/31 21:06:01 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	check_julia_args(char *str)
 		return (42);
 	while (str[i])
 	{
-		if ((str[i] == '.' || str[i] == '-' || str[i] == '+')
-			&& !ft_isdigit(str[i + 1]))
+		if (((str[i] == '.' || str[i] == '-' || str[i] == '+')
+				&& !ft_isdigit(str[i + 1])) || (str[i] == '.' && i == 0))
 			return (42);
 		if (str[i] == '-' || str[i] == '+')
 			sign++;

@@ -6,7 +6,7 @@
 /*   By: fbazaz <fbazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:21:16 by fbazaz            #+#    #+#             */
-/*   Updated: 2024/03/31 12:12:08 by fbazaz           ###   ########.fr       */
+/*   Updated: 2024/03/31 21:12:30 by fbazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../utils/utils.h"
 # include <math.h>
 # include <mlx.h>
-# include <stdio.h>
 # include <stdlib.h>
 
 # define WIDTH 700
